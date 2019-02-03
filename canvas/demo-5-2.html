@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="height:100% ">
+<head>
+	<title></title>
+	<canvas id='canvas' style="border: 1px solid #eeeeee;display: block;margin: 0 auto"></canvas>
+</head>
+<body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		canvas.width = 800;
+		canvas.height = 800;
+        
+        //径向渐变
+        var RadialGrad = context.createRadialGradient(400,400,100,400,400,500);
+        RadialGrad.addColorStop(0.0,'white');
+        RadialGrad.addColorStop(0.25,'yellow');
+        RadialGrad.addColorStop(0.5,'green');
+        RadialGrad.addColorStop(0.75,'blue');
+        RadialGrad.addColorStop(1.0,'black');
+
+        context.fillStyle = RadialGrad;
+        context.fillRect(0,0,canvas.width,canvas.height)
+        //本章小结
+        //fillStyle = color
+        			  gradient
+        			  image
+        			  canvas
+        			  video
+	</script>
+</body>
+</html>

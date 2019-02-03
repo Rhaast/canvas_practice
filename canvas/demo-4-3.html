@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html style="height:100% ">
+<head>
+	<title></title>
+	<canvas id='canvas' style="border: 1px solid #eeeeee;display: block;margin: 0 auto"></canvas>
+</head>
+<body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		canvas.width = 800;
+		canvas.height = 800;
+		context.fillStyle = "black";
+		context.fillRect(0,0,canvas.width,canvas.height)
+		for(var i=0;i<200;i++){
+			drawStar(context,10,10,10,10)
+		}
+
+		function drawStar( cxt ,x,y,R,rot){
+			cxt.save();
+
+			cxt.translate(x,y);
+			cxt.rotate(rot/180*Math.PI)
+
+			starPath(cxt)
+
+			cxt.fillStyle = "#fb3";
+			cxt.strokeStyle = "#fd5";
+			cxt.lineWidth = 3;
+			cxt.lineJoin = "round";
+
+			cxt.fill();
+			cxt.stroke();
+
+			cxt.restore()
+
+    	}
+
+    	function starPath( cxt ){
+    		cxt.beginPath();
+    		for(var i = 0;i<5;i++){
+    			cxt.lineTo(Math.cos( (18+i*72)/180*Math.PI)*20,
+    				 -Math.sin( (18+i*72)/180*Math.PI)*20);
+    			cxt.lineTo(Math.cos( (54+i*72)/180*Math.PI)*0.5*20,
+    				 -Math.sin( (54+i*72)/180*Math.PI)*0.5*20);
+    		}
+    	}
+	</script>
+</body>
+</html>

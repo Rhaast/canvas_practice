@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html style="height:100% ">
+<head>
+	<title></title>
+	<canvas id='canvas' style="border: 1px solid #eeeeee;display: block;margin: 0 auto"></canvas>
+</head>
+<body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		canvas.width = 800;
+		canvas.height = 800;
+        
+        //线性渐变
+        var linearGrad = context.createLinearGradient(-200,-200,1000,1000);
+        linearGrad.addColorStop(0.0,'white');
+        linearGrad.addColorStop(0.25,'yellow');
+        linearGrad.addColorStop(0.5,'green');
+        linearGrad.addColorStop(0.75,'blue');
+        linearGrad.addColorStop(1.0,'black');
+
+        context.fillStyle = linearGrad;
+        context.fillRect(200,200,600,600)
+
+	</script>
+</body>
+</html>

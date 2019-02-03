@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html style="height:100% ">
+<head>
+	<title></title>
+	<canvas id='canvas' style="border: 1px solid #eeeeee;display: block;margin: 0 auto"></canvas>
+</head>
+<body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		canvas.width = 800;
+		canvas.height = 800;
+
+		context.save();//canvas图形状态的保存
+		context.fillStyle = "red";
+		context.translate(100,100);//canvas图形变换位移
+		context.fillRect(0,0,400,400);
+		context.restore();//canvas图形状态的恢复
+
+		context.save();
+		context.fillStyle = "blue";
+		context.translate(300,300);
+		context.fillRect(0,0,400,400);
+		context.restore();
+
+   
+	</script>
+</body>
+</html>

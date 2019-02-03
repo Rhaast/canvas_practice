@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html style="height:100% ">
+<head>
+	<title></title>
+	<canvas id='canvas' style="border: 1px solid #eeeeee;display: block;margin: 0 auto"></canvas>
+</head>
+<body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		canvas.width = 1600;
+		canvas.height = 800;
+		var color = ['green','red','yellow','blue'];
+		var skyStyle = context.createLinearGradient(0,0,0,canvas.height);
+		skyStyle.addColorStop(0.0,'black');
+		skyStyle.addColorStop(1.0,'#035');
+		context.fillStyle = skyStyle;
+		context.fillRect(0,0,canvas.width,canvas.height)
+		for(var i=0;i<200;i++){
+			var r = Math.random()*10+10;
+			var x = Math.random()*canvas.width;
+			var y = Math.random()*canvas.height*0.65;
+			var a = Math.random()*360;
+			var c = color[Math.round(Math.random()*color.length)];
+			console.log('c',c)
+			drawStar(context,r/2.0,r,x,y,a,3,'#fd5',c)
+		}
+
+		function drawStar( cxt , r , R , x , y , rot , borderWidth , borderStyle , fillStyle){
+        cxt.beginPath();
+        for( var i = 0 ; i < 5 ; i ++){
+            cxt.lineTo(Math.cos((18+72*i - rot)/180*Math.PI) * R + x ,- Math.sin((18+72*i - rot )/180*Math.PI) * R + y);
+            cxt.lineTo(Math.cos((54+72*i - rot)/180*Math.PI) * r + x ,- Math.sin((54+72*i - rot )/180*Math.PI) * r + y);
+        }
+        cxt.closePath();
+
+        cxt.lineWidth = borderWidth;
+        cxt.lineJoin = "round"  //线条相交形成角的样式（尖角，圆角）
+        //cxt.miterLimit = 3  //线条相交为尖角时，内角与外角之间的最大值，默认值为10
+        cxt.strokeStyle = borderStyle;  
+        cxt.fillStyle = fillStyle;
+
+        cxt.fill();
+        cxt.stroke();
+    }
+	</script>
+</body>
+</html>

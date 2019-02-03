@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html style="height:100% ">
+<head>
+	<title></title>
+	<canvas id='canvas' style="border: 1px solid #eeeeee;display: block;margin: 0 auto"></canvas>
+</head>
+<body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		canvas.width = 800;
+		canvas.height = 800;
+
+		context.fillStyle = "red";
+		context.strokeStyle = "#058";
+		context.lineWidth = 5;
+
+		/////////////////////////////
+		// a c e
+		// b d f
+		// 0 0 1
+		////////////////////////////
+		// a,d 水平、垂直缩放
+		// b,c 水平、垂直倾斜
+		// e,f 水平、垂直位移
+		///////////////////////////
+
+		context.save();
+		//ncontext.transform(a,b,c,d,e,f);
+		context.transform(1.5,.5,0.5,1.5,50,100);
+		context.fillRect(50,50,300,300);
+		context.strokeRect(50,50,300,300);
+		context.restore()
+
+	</script>
+</body>
+</html>
